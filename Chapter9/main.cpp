@@ -383,7 +383,7 @@ void check_properties()
 	assert(calculate_payout(3, 3, 3) == 250);
 	assert(calculate_payout(8, 8, 8) == 250);
 
-	constexpr auto no_op = [](auto begin, auto end) { };
+	constexpr auto no_op = []([[maybe_unused]] auto begin, [[maybe_unused]] auto end) { };
 	static_assert(make_reels(1, 1, no_op).size() == 1);
 
 	std::vector v{1, 2, 3, 4, 5};

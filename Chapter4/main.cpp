@@ -118,7 +118,7 @@ void pay_day()
         floor<days>(now)
     };
 
-    auto this_year = ymd.year();
+    [[maybe_unused]] auto this_year = ymd.year();
 
     auto pay_day = ymd.year() / ymd.month() / Friday[last];
     auto event = sys_days(pay_day);
@@ -192,7 +192,7 @@ void check_properties()
 
     // An example of another test, not included in the text of the book
     auto now = sys_days{ 2022y / March / 27 };
-    auto difference = duration_cast<hours>(countdown_in_local_time(now, 2022y / March / 28));
+    [[maybe_unused]] auto difference = duration_cast<hours>(countdown_in_local_time(now, 2022y / March / 28));
     // assert(difference == 23h); // The assert works for the "Europe/London" time zone. Yours might vary
 }
 

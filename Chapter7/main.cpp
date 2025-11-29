@@ -76,7 +76,7 @@ void check_properties()
 	};
 
 	// Listing 7.12 A fake generator for testing
-	auto select_first = [](auto lb, auto ub, auto dest) {
+	auto select_first = [](auto lb, [[maybe_unused]] auto ub, auto dest) {
 		*dest = *lb;
 	};
 	auto [word1, definition1, offset1_2] = select_overlapping_word_from_dictionary("sprint", second_2, select_first);
@@ -104,7 +104,7 @@ void check_properties()
 		select_first);
 	assert(g2 == "aaaa");
 
-	auto select_last = [](auto lb, auto ub, auto dest) {
+	auto select_last = []([[maybe_unused]] auto lb, auto ub, auto dest) {
 		*dest = *(--ub);
 	};
 	auto [g1b, d1b, o1b] = select_overlapping_word_from_dictionary(word,

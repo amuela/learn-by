@@ -8,7 +8,6 @@
 #include <optional>
 #include <random>
 #include <string>
-#include <unordered_set>
 #include <vector>
 
 
@@ -62,7 +61,7 @@ void guess_number_or_give_up(int number)
 {
 	std::cout << "Guess the number.\n>";
 	std::optional<int> guess;
-	while (guess = read_number(std::cin))
+	while ((guess = read_number(std::cin)))
 	{
 		if (guess.value() == number)
 		{
@@ -170,9 +169,9 @@ void guess_number_with_clues(unsigned number, auto message)
 {
 	std::cout << "Guess the number.\n>";
 	std::optional<int> guess;
-	while (guess = read_number(std::cin))
+	while ((guess = read_number(std::cin)))
 	{
-		if (guess.value() == number)
+            if (static_cast<unsigned>(guess.value()) == number)
 		{
 			std::cout << "Well done.\n";
 			return;
@@ -203,7 +202,7 @@ void guess_number_with_more_clues(int number, auto messages)
 {
 	std::cout << "Guess the number.\n>";
 	std::optional<int> guess;
-	while (guess = read_number(std::cin))
+	while ((guess = read_number(std::cin)))
 	{
 		if (guess.value() == number)
 		{
